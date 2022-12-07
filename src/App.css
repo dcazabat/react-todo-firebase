@@ -1,0 +1,22 @@
+:root {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+body {
+  justify-content: center;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card_img {
+  margin-top: 1em;
+  width: 12em;
+}
+
+.btn5 {
+  width: 2rem;
+}
