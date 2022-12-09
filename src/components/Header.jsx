@@ -1,6 +1,6 @@
 import { AiOutlineLogin, AiOutlineLogout } from 'react-icons/ai'
 
-export default function Header({ isLogged }) {
+export default function Header({ currentUserLogged }) {
   return (
     <div className="d-flex flex-row justify-content-around text-center mb-3 text-bg-dark ">
       <div className='p-3'>
@@ -10,7 +10,7 @@ export default function Header({ isLogged }) {
         </h4>
       </div>
       <div className='p-3 align-self-center'>
-        {(isLogged) ?
+        {(currentUserLogged.username != "") ?
           <a className="btn btn-danger" href='/signout'>
             <AiOutlineLogout size={30} />
           </a>

@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import SignOut from "./components/Signout"
 import ChooseUserNameView from "./components/ChooseUserNameView";
 import Application from './components/Application';
+import { currentUser } from "./components/Application";
 
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
@@ -19,11 +20,20 @@ function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
-  const [isLogged, setIsLogged] = useState(false)
 
-  const addContactHandler = (contact) => {
+  async function addContactHandler(contact) {
+    const newContact = {
+      id: uuidv4(),
+      name: contact.name,
+      email: contact.email,
+      uid: currentUser.uid,
+    };
+    console.log(newContact);
+    // const res = await insertNewContact({ ...newContact });
+    // newContact.docId = res.id;
+
     setContacts([...contacts, { id: uuidv4(), ...contact }]);
-    console.log('ID', uuidv4());
+    // console.log('ID', uuidv4());
   };
 
   const removeContactHandler = (id) => {

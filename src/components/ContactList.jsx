@@ -3,7 +3,7 @@ import ContactCard from "./ContactCard";
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 import Header from "./Header";
 import { useEffect, useState } from "react";
-import { auth, getUserInfo, insertNewLink, userExists, fetchLinkData, logout, updateLink } from "../firebase/firebase";
+import { auth, getUserInfo, userExists, fetchContactData } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function ContactList(props) {
@@ -28,8 +28,8 @@ export default function ContactList(props) {
           navigate("/login");
         } else {
           // console.log("Ya tiene username");
-          const asyncLinks = await fetchLinkData(uid);
-          setLinks([...asyncLinks]);
+          const asyncContacts = await fetchContactData(uid);
+          setContacts([...asyncContacts]);
         }
       } else {
         // console.log('Usuario Logueado pero no existe');
