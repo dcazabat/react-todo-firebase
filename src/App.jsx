@@ -19,6 +19,7 @@ function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
+  const [isLogged, setIsLogged] = useState(false)
 
   const addContactHandler = (contact) => {
     setContacts([...contacts, { id: uuidv4(), ...contact }]);
