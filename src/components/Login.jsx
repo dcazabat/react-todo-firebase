@@ -1,74 +1,65 @@
-import { useState } from "react";
-import { auth, userExist } from '../firebase/cnx'
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth, registerNewUser } from "../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import AuthProvider from "../components/AuthProvider";
+import Loading from "../components/Loading";
 import { FcGoogle } from 'react-icons/fc'
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import AuthProvider from "./AuthProvider";
 
-export default function Login() {
+import style from "./login.module.css";
 
-    // const [currentUser, setCurrentUser] = useState(null);
+/*
+  Stages:
+  0: initiated
+  1: loading
+  2: login completed
+  3: login but no username
+  4: not logged
+*/
+export default function LoginV2() {
+  const navigate = useNavigate();
+  const [state, setState] = useState(1);
 
-    /*
-        Valores currentState
-        0: Init
-        1: Loading 
-        2: Login Complet
-        3: Login but no Registration
-        4: Not Logged In
-        5: User Exist
-        6: New UserName, Continue
-    */
-
-    const [currentState, setCurrentState] = useState(0);
-    const navigate = useNavigate();
-
-    async function logInGoogle() {
-        const googleProvider = new GoogleAuthProvider();
-        await singInWithGoogle(googleProvider);
-
-        async function singInWithGoogle(googleProvider) {
-            try {
-                const res = await signInWithPopup(auth, googleProvider);
-                console.log(res);
-            } catch (error) {
-                console.error(error)
-            }
+  function handleAuth() {
+    const googleProvider = new GoogleAuthProvider();
+    const signInWithGoogle = async () => {
+      try {
+        const res = await signInWithPopup(auth, googleProvider);
+        if (res) {
+          registerNewUser(res.user);
         }
-    }
-
-    function handleUserLoggedIn(user) {
-        navigate('/')
-    }
-
-    function handleUserNotLoggedIn() {
-        setCurrentState(3)
-    }
-
-    function handleUserNotRegistered(user) {
-        navigate('/username')
-    }
-
-    if (currentState === 3) {
-        return (
-            <div className="text-center">
-                <button className="btn btn-ligth" onClick={logInGoogle}>
-                    <FcGoogle size={50} />
-                </button>
-            </div>
-        )
+      } catch (err) {
+        console.error(err);
+        //alert(err.message);
+      }
     };
+    signInWithGoogle();
+  }
 
+  if (state === 4) {
     return (
-        <AuthProvider
-            onUserLoggedIn={handleUserLoggedIn}
-            onUserNotLoggedIn={handleUserNotLoggedIn}
-            onUserNotRegistered={handleUserNotRegistered}
-        >
-            <div className="container">
-                <h6 className="display-3 text-center">Loading ...</h6>
-            </div>
-        </AuthProvider>
-    )
-};
+      <div className={style.loginView}>
+        <div>
+          <h1>LOGUEATE !!!!</h1>
+          <button onClick={() => handleAuth()} className="btn btn-ligth">
+            <FcGoogle size={50} />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <AuthProvider
+      onUserLoggedIn={(user) => {
+        navigate("/contacts");
+      }}
+      onUserNotLoggedIn={() => {
+        setState(4);
+      }}
+    >
+      <Loading />
+    </AuthProvider>
+  );
+}

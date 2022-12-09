@@ -8,6 +8,9 @@ import ContactList from "./components/ContactList";
 import ContactDetail from "./components/ContactDetail";
 import NoMatch from "./components/NoMatch";
 import Login from "./components/Login";
+import SignOut from "./components/Signout"
+import ChooseUserNameView from "./components/ChooseUserNameView";
+import Application from './components/Application';
 
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
@@ -41,11 +44,12 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>
+          <Route path="/" element={<Application />} />
+          <Route exact path="/contacts" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>
           <Route exact path="/login" element={<Login />} ></Route>
+          <Route exact path="/signout" element={<SignOut />} ></Route>
           <Route exact path="/username" element={<ChooseUserNameView />} ></Route>
           <Route exact path="/add" element={<AddContact addContactHandler={addContactHandler} />}></Route>
           <Route path="/contact/:id" element={<ContactDetail contacts={contacts}/>}></Route>

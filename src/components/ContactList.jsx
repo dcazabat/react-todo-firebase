@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import { BsFillPlusCircleFill } from 'react-icons/bs'
+import Header from "./Header";
 
 export default function ContactList(props) {
   const deleteConactHandler = (id) => {
@@ -18,17 +19,20 @@ export default function ContactList(props) {
     );
   });
   return (
-    <div className="container text-center">
-      <div className="row d-flex align-items-center">
-      <h2 className="display-4 col">
-        Contactos
-      </h2>
-      <Link className="col-2" to="/add">
-        <BsFillPlusCircleFill size={50} />
-      </Link>
-      </div>
-      <div className="row mt-5">
-        {renderContactList}
+    <div>
+      <Header isLogged={true}></Header>
+      <div className="text-center">
+        <div className="row d-flex align-items-center">
+          <h2 className="display-4 col">
+            Contactos
+          </h2>
+          <Link className="col-2" to="/add">
+            <BsFillPlusCircleFill size={50} />
+          </Link>
+        </div>
+        <div className="row mt-5">
+          {renderContactList}
+        </div>
       </div>
     </div>
   );

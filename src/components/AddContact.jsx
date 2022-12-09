@@ -9,7 +9,7 @@ export default function AddContact(props) {
   function add() {
     // console.log('Agregar');
     props.addContactHandler({ "name": name, "email": email });
-    navigate("/");
+    navigate("/contacts");
   };
   
   return (
@@ -41,7 +41,7 @@ export default function AddContact(props) {
           />
         </div>
         <button type="submit" className="btn btn-success mt-2">Agregar</button>
-        <button type="reset" className="btn btn-danger mt-2 mx-2" onClick={() => navigate("/")}>Cancelar</button>
+        <button type="reset" className="btn btn-danger mt-2 mx-2" onClick={() => navigate("/contacts")}>Cancelar</button>
       </form>
     </div>
   );
