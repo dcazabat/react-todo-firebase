@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { auth, getUserInfo, userExists, registerNewUser } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-// import { setCurrentUser } from "./Application";
 
 export default function AuthProvider({ children, onUserLoggedIn, onUserNotLoggedIn }) {
   const navigate = useNavigate();
@@ -21,7 +20,6 @@ export default function AuthProvider({ children, onUserLoggedIn, onUserNotLogged
             navigate("/username");
           } else {
             // console.log("Usuario logueado completo");
-            setCurrentUser(loggedUser);
             console.log(currentUser);
             onUserLoggedIn(loggedUser);
           }

@@ -57,7 +57,7 @@ export default function ContactList(props) {
   });
   return (
     <div>
-      <Header isLogged={(currentUser.username != "" ? true : false)}></Header>
+      <Header isLogged={true}></Header>
       <div className="text-center">
         <div className="row d-flex align-items-center">
           <h2 className="display-4 col">
