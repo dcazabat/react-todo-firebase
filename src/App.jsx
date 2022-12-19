@@ -10,7 +10,6 @@ import Login from "./components/Login";
 import SignOut from "./components/Signout"
 import ChooseUserNameView from "./components/ChooseUserNameView";
 import Application from './components/Application';
-import { currentUser } from "./components/Application";
 
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
@@ -25,7 +24,7 @@ function App() {
       id: uuidv4(),
       name: contact.name,
       email: contact.email,
-      uid: currentUser.uid,
+      // uid: currentUser.uid,
     };
     console.log(newContact);
     // const res = await insertNewContact({ ...newContact });

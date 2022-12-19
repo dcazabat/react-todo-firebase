@@ -20,7 +20,6 @@ export default function AuthProvider({ children, onUserLoggedIn, onUserNotLogged
             navigate("/username");
           } else {
             // console.log("Usuario logueado completo");
-            console.log(currentUser);
             onUserLoggedIn(loggedUser);
           }
         } else {

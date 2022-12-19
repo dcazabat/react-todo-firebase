@@ -28,8 +28,8 @@ export default function ContactList(props) {
           navigate("/login");
         } else {
           // console.log("Ya tiene username");
-          const asyncContacts = await fetchContactData(uid);
-          setContacts([...asyncContacts]);
+          // const asyncContacts = await fetchContactData(uid);
+          // setContacts([...asyncContacts]);
         }
       } else {
         // console.log('Usuario Logueado pero no existe');
