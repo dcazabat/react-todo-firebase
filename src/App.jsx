@@ -14,6 +14,7 @@ import Application from './components/Application';
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
 
+
 function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
@@ -61,12 +62,12 @@ function App() {
           <Route exact path="/signout" element={<SignOut />} ></Route>
           <Route exact path="/username" element={<ChooseUserNameView />} ></Route>
           <Route exact path="/add" element={<AddContact addContactHandler={addContactHandler} />}></Route>
-          <Route path="/contact/:id" element={<ContactDetail contacts={contacts}/>}></Route>
+          <Route path="/contact/:id" element={<ContactDetail contacts={contacts} />}></Route>
           <Route path="*" element={<NoMatch />} ></Route>
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;

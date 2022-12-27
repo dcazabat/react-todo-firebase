@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function AuthProvider({ children, onUserLoggedIn, onUserNotLoggedIn }) {
   const navigate = useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {

@@ -2,31 +2,28 @@ import { Link, useNavigate } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 import Header from "./Header";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { auth, getUserInfo, userExists, fetchContactData } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function ContactList(props) {
-  const [currentUser, setCurrentUser] = useState({uid:0, username: "",profilePicture:"",processCompleted:false,displayName:""});
-
   const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, callBackAuthState);
-  },[])
+  }, [])
 
   async function callBackAuthState(user) {
     if (user) {
       const uid = user.uid;
-      console.log(user);
 
       if (userExists(user.uid)) {
         const loggedUser = await getUserInfo(uid);
-        setCurrentUser(loggedUser);
         if (loggedUser.username === "") {
           // console.log("Falta username");
           navigate("/login");
         } else {
+          console.log(user);
           // console.log("Ya tiene username");
           // const asyncContacts = await fetchContactData(uid);
           // setContacts([...asyncContacts]);
@@ -57,7 +54,7 @@ export default function ContactList(props) {
   });
   return (
     <div>
-      <Header isLogged={true}></Header>
+      <Header isLogged={true} />
       <div className="text-center">
         <div className="row d-flex align-items-center">
           <h2 className="display-4 col">

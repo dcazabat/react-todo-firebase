@@ -5,9 +5,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import AuthProvider from "../components/AuthProvider";
 import Loading from "../components/Loading";
-import { FcGoogle } from 'react-icons/fc'
+import { FcGoogle, FcLeft } from 'react-icons/fc'
 
-import style from "./login.module.css";
+import style from "./Login.css";
 
 /*
   Stages:
@@ -42,8 +42,11 @@ export default function LoginV2() {
       <div className={style.loginView}>
         <div>
           <h1>LOGUEATE !!!!</h1>
-          <button onClick={() => handleAuth()} className="btn btn-ligth">
+          <button onClick={() => handleAuth()} className="btn btn-outline-dark">
             <FcGoogle size={50} />
+          </button>
+          <button onClick={() => navigate('/')} className="btn btn-outline-dark">
+            <FcLeft size={50} /> Back
           </button>
         </div>
       </div>
