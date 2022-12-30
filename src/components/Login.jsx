@@ -17,7 +17,7 @@ import style from "./Login.css";
   3: login but no username
   4: not logged
 */
-export default function LoginV2() {
+export default function Login() {
   const navigate = useNavigate();
   const [state, setState] = useState(1);
 

@@ -20,7 +20,7 @@ export default function AuthProvider({ children, onUserLoggedIn, onUserNotLogged
             // console.log("Falta username");
             navigate("/username");
           } else {
-            // console.log("Usuario logueado completo");
+            console.log("Usuario logueado completo - AuthProvider");
             onUserLoggedIn(loggedUser);
           }
         } else {

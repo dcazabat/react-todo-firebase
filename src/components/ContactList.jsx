@@ -24,7 +24,7 @@ export default function ContactList(props) {
           navigate("/login");
         } else {
           console.log(user);
-          // console.log("Ya tiene username");
+          console.log("Ya tiene username - ContactList");
           // const asyncContacts = await fetchContactData(uid);
           // setContacts([...asyncContacts]);
         }

@@ -62,7 +62,7 @@ export async function userExists(uid) {
 }
 
 export async function updateUser(user) {
-  console.log(user);
+  // console.log(user);
   try {
     const usersRef = collection(db, "users");
     await setDoc(doc(usersRef, user.uid), user);
@@ -78,7 +78,7 @@ export async function existsUsername(username) {
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
+    // console.log(doc.id, " => ", doc.data());
     users.push(doc.data());
   });
   return users.length > 0 ? users[0].uid : null;
