@@ -2,10 +2,7 @@
   margin: 0;
   padding: 0;
   background: none;
-}
-
-body {
-  justify-content: center;
+  box-sizing: border-box;
 }
 
 .card {
@@ -19,4 +16,8 @@ body {
 
 .btn5 {
   width: 2rem;
+}
+
+.imglogo {
+  width: 3rem;
 }

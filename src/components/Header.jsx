@@ -1,25 +1,61 @@
-import { useContext } from 'react';
+import { useState, useEffect } from 'react'
 import { AiOutlineLogin, AiOutlineLogout } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+import { auth, getUserInfo, userExists, fetchContactData } from "../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import imgLogo from '../../public/fav-icon.svg'
+import './Header.css';
 
-export default function Header({isLogged}) {
+export default function Header() {
+  
+  const [isLogged, setIsLogged] = useState()
+  const [userName, setUserName ] = useState('No Logeado')
 
+  useEffect(() => {
+    onAuthStateChanged(auth, callBackAuthState);
+  }, [])
+
+  async function callBackAuthState(user) {
+    if (user) {
+      const uid = user.uid;
+
+      setUserName('No Logeado')
+      if (userExists(user.uid)) {
+        const loggedUser = await getUserInfo(uid);
+        if (loggedUser.username === "") {
+          setIsLogged(false)
+        } else {
+          setUserName(loggedUser.username)
+          setIsLogged(true)
+        }
+      } else {
+        setIsLogged(false)
+      }
+    } else {
+      setIsLogged(false)
+    }
+  }
+  
   return (
-    <div className="d-flex flex-row justify-content-around text-center mb-3 text-bg-dark ">
-      <div className='p-3'>
-        <h2 className="display-3">Lista de Contactos</h2>
+    <div className="nav-header">
+      <div className="div-btn-logo">
+        <img className='imglogo' src={imgLogo} alt="" />
+      </div>
+      <div className=''>
+        <h2>Lista de Contactos</h2>
         <h4>
-          Carga de Variable de Enviroment (.env) : {import.meta.env.VITE_HELLO}
+          Usuario Conectado: {userName}
         </h4>
       </div>
-      <div className='p-3 align-self-center'>
+      <div className='div-btn-login'>
         {(isLogged) ?
-          <a className="btn btn-danger" href='/signout'>
+          <Link className="btn btn-danger" to='/signout'>
             <AiOutlineLogout size={30} />
-          </a>
+          </Link>
           :
-          <a className="btn btn-success" href='/login'>
+          <Link className="btn btn-success" to='/login'>
             <AiOutlineLogin size={30} />
-          </a>}
+          </Link>}
       </div>
     </div>
   );

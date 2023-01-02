@@ -7,13 +7,12 @@ export default function AddContact(props) {
   const [email, setEmail] = useState("");
 
   function add() {
-    // console.log('Agregar');
     props.addContactHandler({ "name": name, "email": email });
     navigate("/contacts");
   };
   
   return (
-    <div className="ui main">
+    <>
       <h2>Agregar Contacto</h2>
       <form onSubmit={() => add()}>
         <div className="mb-3">
@@ -43,6 +42,6 @@ export default function AddContact(props) {
         <button type="submit" className="btn btn-success mt-2">Agregar</button>
         <button type="reset" className="btn btn-danger mt-2 mx-2" onClick={() => navigate("/contacts")}>Cancelar</button>
       </form>
-    </div>
+    </>
   );
 };

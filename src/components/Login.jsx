@@ -7,7 +7,7 @@ import AuthProvider from "../components/AuthProvider";
 import Loading from "../components/Loading";
 import { FcGoogle, FcLeft } from 'react-icons/fc'
 
-import style from "./Login.css";
+import "./Login.css";
 
 /*
   Stages:
@@ -39,7 +39,7 @@ export default function Login() {
 
   if (state === 4) {
     return (
-      <div className={style.loginView}>
+      <div className="loginView">
         <div>
           <h1>LOGUEATE !!!!</h1>
           <button onClick={() => handleAuth()} className="btn btn-outline-dark">

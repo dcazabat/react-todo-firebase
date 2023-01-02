@@ -53,7 +53,7 @@ function App() {
   }, [contacts]);
 
   return (
-    <div className="container">
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Application />} />
@@ -66,7 +66,7 @@ function App() {
           <Route path="*" element={<NoMatch />} ></Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   )
 }
 

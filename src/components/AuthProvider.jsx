@@ -17,7 +17,6 @@ export default function AuthProvider({ children, onUserLoggedIn, onUserNotLogged
           const loggedUser = await getUserInfo(uid);
 
           if (!loggedUser.processCompleted) {
-            // console.log("Falta username");
             navigate("/username");
           } else {
             console.log("Usuario logueado completo - AuthProvider");
@@ -40,4 +39,4 @@ export default function AuthProvider({ children, onUserLoggedIn, onUserNotLogged
   }, []);
 
   return <div>{children}</div>;
-}
+};

@@ -23,8 +23,7 @@ export default function ContactList(props) {
           // console.log("Falta username");
           navigate("/login");
         } else {
-          console.log(user);
-          console.log("Ya tiene username - ContactList");
+          console.log(`User : ${user.uid}`);
           // const asyncContacts = await fetchContactData(uid);
           // setContacts([...asyncContacts]);
         }
@@ -53,8 +52,8 @@ export default function ContactList(props) {
     );
   });
   return (
-    <div>
-      <Header isLogged={true} />
+    <>
+      <Header/>
       <div className="text-center">
         <div className="row d-flex align-items-center">
           <h2 className="display-4 col">
@@ -68,6 +67,6 @@ export default function ContactList(props) {
           {renderContactList}
         </div>
       </div>
-    </div>
+    </>
   );
 };
