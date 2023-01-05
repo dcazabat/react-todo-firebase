@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, registerNewUser } from "../firebase/firebase";
+import { auth, registerNewUser } from "../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import AuthProvider from "../components/AuthProvider";
-import Loading from "../components/Loading";
+import AuthProvider from "../AuthProvider";
+import Loading from "../Loading/Loading";
 import { FcGoogle, FcLeft } from 'react-icons/fc'
 
 import "./Login.css";

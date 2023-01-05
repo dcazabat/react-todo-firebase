@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import user from "../assets/images/user.png";
+import user from "../../assets/images/user.png";
 import { FcFullTrash } from 'react-icons/fc'
 
 export default function ContactCard(props) {

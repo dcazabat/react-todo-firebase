@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { AiOutlineLogin, AiOutlineLogout } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import { auth, getUserInfo, userExists, fetchContactData } from "../firebase/firebase";
+import { auth, getUserInfo, userExists, fetchContactData } from "../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import imgLogo from '../../public/fav-icon.svg'
+import imgLogo from '../../assets/images/app-icon.svg'
 import './Header.css';
 
 export default function Header() {
@@ -41,7 +41,7 @@ export default function Header() {
       <div className="div-btn-logo">
         <img className='imglogo' src={imgLogo} alt="" />
       </div>
-      <div className=''>
+      <div className='div-text-nav'>
         <h2>Lista de Contactos</h2>
         <h4>
           Usuario Conectado: {userName}

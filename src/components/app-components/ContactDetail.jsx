@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import user from "../assets/images/user.jpg";
+import user from "../../assets/images/user.jpg";
 
 export default function ContactDetail(props) {
   const {id} = useParams();

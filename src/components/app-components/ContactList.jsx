@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import { BsFillPlusCircleFill } from 'react-icons/bs'
-import Header from "./Header";
+import Header from "../Header/Header";
 import { useEffect } from "react";
-import { auth, getUserInfo, userExists, fetchContactData } from "../firebase/firebase";
+import { auth, getUserInfo, userExists, fetchContactData } from "../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function ContactList(props) {

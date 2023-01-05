@@ -5,12 +5,30 @@
     justify-content: space-between;
     background-color: black;
     color: aliceblue;
+    padding: 10px;
+}
+
+.div-text-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .div-btn-login {
     align-items: center;
     display: flex;
     padding-right: 10px;
+}
+
+.div-btn-login a {
+    width: 70px;
+}
+
+.div-btn-login a:hover {
+    width: 70px;
+    color: yellow;
 }
 
 .div-btn-logo {

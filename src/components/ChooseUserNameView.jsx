@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, existsUsername, getUserInfo, updateUser, userExists } from "../firebase/firebase";
-import Loading from "./Loading";
+import Loading from "./Loading/Loading";
 
 /*
   Stages:

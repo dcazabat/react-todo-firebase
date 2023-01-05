@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import "./App.css";
-import AddContact from "./components/AddContact";
-import ContactList from "./components/ContactList";
-import ContactDetail from "./components/ContactDetail";
+import AddContact from "./components/app-components/AddContact";
+import ContactList from "./components/app-components/ContactList";
+import ContactDetail from "./components/app-components/ContactDetail";
 import NoMatch from "./components/NoMatch";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import SignOut from "./components/Signout"
 import ChooseUserNameView from "./components/ChooseUserNameView";
-import Application from './components/Application';
+import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer'
 
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
@@ -56,7 +57,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Application />} />
+          <Route path="/" element={<Home />} />
           <Route exact path="/contacts" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>
           <Route exact path="/login" element={<Login />} ></Route>
           <Route exact path="/signout" element={<SignOut />} ></Route>
@@ -66,6 +67,7 @@ function App() {
           <Route path="*" element={<NoMatch />} ></Route>
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </>
   )
 }
