@@ -11,6 +11,7 @@ import SignOut from "./components/Signout"
 import ChooseUserNameView from "./components/ChooseUserNameView";
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer'
+import Header from "./components/Header/Header";
 
 // Importar la variables de Conexion de Firebase
 // import { db, dbCollections } from './firebase/cnx';
@@ -56,6 +57,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exact path="/contacts" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>

@@ -5,7 +5,6 @@ export default function Home() {
 
     return (
         <>
-            <Header />
             <div className="div-container">
                 <p className="text-welcome">
                     Estoy en la App, para que funcione, se debe crear un archivo .env dentro de la carpeta src

@@ -12,29 +12,27 @@ export default function Header() {
   const [userName, setUserName ] = useState('No Logeado')
 
   useEffect(() => {
-    onAuthStateChanged(auth, callBackAuthState);
-  }, [])
-
-  async function callBackAuthState(user) {
-    if (user) {
-      const uid = user.uid;
-
-      setUserName('No Logeado')
-      if (userExists(user.uid)) {
-        const loggedUser = await getUserInfo(uid);
-        if (loggedUser.username === "") {
-          setIsLogged(false)
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+  
+        setUserName('No Logeado')
+        if (userExists(user.uid)) {
+          const loggedUser = await getUserInfo(uid);
+          if (loggedUser.username === "") {
+            setIsLogged(false)
+          } else {
+            setUserName(loggedUser.displayName)
+            setIsLogged(true)
+          }
         } else {
-          setUserName(loggedUser.username)
-          setIsLogged(true)
+          setIsLogged(false)
         }
       } else {
         setIsLogged(false)
       }
-    } else {
-      setIsLogged(false)
-    }
-  }
+    });
+  }, [])
   
   return (
     <div className="nav-header">

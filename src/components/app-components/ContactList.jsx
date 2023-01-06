@@ -6,44 +6,44 @@ import { useEffect } from "react";
 import { auth, getUserInfo, userExists, fetchContactData } from "../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
+import './ContactList.css'
+
 export default function ContactList(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, callBackAuthState);
-  }, [])
-
-  async function callBackAuthState(user) {
-    if (user) {
-      const uid = user.uid;
-
-      if (userExists(user.uid)) {
-        const loggedUser = await getUserInfo(uid);
-        if (loggedUser.username === "") {
-          // console.log("Falta username");
-          navigate("/login");
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+    
+        if (userExists(user.uid)) {
+          const loggedUser = await getUserInfo(uid);
+          if (loggedUser.username === "") {
+            // Falta username
+            navigate("/login");
+          } else {
+            // Todo OK
+            // const asyncContacts = await fetchContactData(uid);
+            // setContacts([...asyncContacts]);
+          }
         } else {
-          console.log(`User : ${user.uid}`);
-          // const asyncContacts = await fetchContactData(uid);
-          // setContacts([...asyncContacts]);
+          // Usuario Logueado pero no existe
+          navigate("/login");
         }
       } else {
-        // console.log('Usuario Logueado pero no existe');
+        // Usuario no Logueado
         navigate("/login");
       }
-    } else {
-      // console.log('Usuario no Logueado');
-      navigate("/login");
-    }
-  }
+    });
+  }, [])
 
   const deleteConactHandler = (id) => {
     props.getContactId(id);
   };
 
-  const renderContactList = props.contacts.map((contact) => {
+  const renderContactList = props.contacts.map((contact, index) => {
     return (
-      <div className="col d-flex justify-content-center align-items-center">
+      <div className="col d-flex justify-content-center align-items-center" key={index}>
         <ContactCard
           contact={contact}
           clickHander={deleteConactHandler}
@@ -52,8 +52,7 @@ export default function ContactList(props) {
     );
   });
   return (
-    <>
-      <Header/>
+    <div className="container">
       <div className="text-center">
         <div className="row d-flex align-items-center">
           <h2 className="display-4 col">
@@ -67,6 +66,6 @@ export default function ContactList(props) {
           {renderContactList}
         </div>
       </div>
-    </>
+    </div>
   );
 };

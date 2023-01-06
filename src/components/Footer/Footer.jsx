@@ -7,41 +7,41 @@ import './Footer.css'
 export default function Footer() {
     return (
         <>
-            <nav>
+            <nav className='nav-footer'>
                 <ul>
                     <li>
                         <a href='#'>
-                            <i class='fab fa-facebook'></i>
+                            <i className='fab fa-facebook'></i>
                             <span>Facebook</span>
                         </a>
                     </li>
                     <li>
                         <a href='#'>
-                            <i class='fab fa-twitter'></i>
+                            <i className='fab fa-twitter'></i>
                             <span>Twitter</span>
                         </a>
                     </li >
                     <li>
                         <a href='#'>
-                            <i class='fab fa-instagram'></i>
+                            <i className='fab fa-instagram'></i>
                             <span>Instagram</span>
                         </a >
                     </li >
                     <li>
                         <a href='#'>
-                            <i class='fab fa-linkedin'></i>
+                            <i className='fab fa-linkedin'></i>
                             <span>Linkedin</span>
                         </a >
                     </li >
                     <li>
                         <a href='#'>
-                            <i class='fab fa-github'></i>
+                            <i className='fab fa-github'></i>
                             <span>Github</span>
                         </a >
                     </li >
                     <li>
                         <a href='#'>
-                            <i class='fab fa-youtube'></i>
+                            <i className='fab fa-youtube'></i>
                             <span>Youtube</span>
                         </a >
                     </li >

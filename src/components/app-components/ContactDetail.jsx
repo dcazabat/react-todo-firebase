@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import user from "../../assets/images/user.jpg";
 
 export default function ContactDetail(props) {
-  const {id} = useParams();
+  const { id } = useParams();
   const contact = props.contacts.filter(item => {
     return item.id === id;
   });
@@ -12,23 +12,19 @@ export default function ContactDetail(props) {
   const [email] = useState(contact[0].email);
 
   return (
-    <div className="main">
-      <div className="ui card centered">
-        <div className="image">
-          <img src={user} alt="user" />
-        </div>
-        <div className="content">
-          <div className="display-6">{name}</div>
-          <div className="description">{email}</div>
+    <div className="container text-center w-25">
+      <div className="card m-3">
+        <img className="card-img-top" src={user} alt="user" />
+        <div className="card-body">
+          <div className="card-title">{name}</div>
+          <div className="card-text">{email}</div>
         </div>
       </div>
-      <div className="center-div">
-        <Link to="/">
-          <button className="ui button blue center">
-            Volver a la Lista de Contactos
-          </button>
-        </Link>
-      </div>
+      <Link to="/contacts">
+        <button className="btn btn-warning">
+          Volver a la Lista de Contactos
+        </button>
+      </Link>
     </div>
   );
 };

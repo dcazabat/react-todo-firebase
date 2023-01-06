@@ -1,92 +1,93 @@
-nav {
-    left: -60px;
+.nav-footer {
+    top: 110px;
+    left: -30px;
     padding: 2px 2px 2px 0 ;
     border: solid 2px black;
     position: fixed;
-    width: 70px;
+    width: 40px;
     margin-top: 0px;
     transition: all 0.3s linear;
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, .4);
 }
 
-nav:hover {
+.nav-footer:hover {
     left: 0;
 }
 
-nav ul {
+.nav-footer ul {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
 }
 
-nav li {
-    height: 60px;
+.nav-footer li {
+    height: 30px;
     position: relative;
 }
 
-nav li a {
+.nav-footer li a {
     text-decoration: none;
     color: white;
     display: block;
     height: 100%;
     width: 100%;
-    line-height: 60px;
+    line-height: 30px;
     padding-left: 25%;
     border-bottom: 1px solid rgba(0, 0, 0, .4);
     transition: all .3s linear;
 }
 
-nav li a i {
+.nav-footer li a i {
     position: absolute;
-    top: 17px;
-    left: 20px;
-    font-size: 27px;
+    top: 7.5px;
+    left: 8px;
+    font-size: 15px;
 }
 
-ul li a span {
+.nav-footer ul li a span {
     display: none;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-a:hover {
+.nav-footer a:hover {
     z-index: 1;
-    width: 200px;
+    width: 100px;
 }
 
-ul li:hover a span {
+.nav-footer ul li:hover a span {
     padding-left: 30%;
     display: block;
     color: white;
 }
 
 /* Facebook */
-nav li:nth-child(1) a {
+.nav-footer li:nth-child(1) a {
     background: #4267B2;
 }
 
 /* Twitter */
-nav li:nth-child(2) a {
+.nav-footer li:nth-child(2) a {
     background: #1DA1F2;
 }
 
 /* Instagram */
-nav li:nth-child(3) a {
+.nav-footer li:nth-child(3) a {
     background: #E1306C;
 }
 
 /* LinkedIn */
-nav li:nth-child(4) a {
+.nav-footer li:nth-child(4) a {
     background: #2867B2;
 }
 
 /* Github */
-nav li:nth-child(5) a {
+.nav-footer li:nth-child(5) a {
     background: #333;
 }
 
 /* Youtube */
-nav li:nth-child(6) a {
+.nav-footer li:nth-child(6) a {
     background: #ff0000;
 }
