@@ -1,36 +1,27 @@
-.load {
-    position: relative;
-    width: 200px;
-    height: 200px;
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading__spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ccc;
+    border-top: 4px solid #333;
     border-radius: 50%;
-    background: linear-gradient(45deg, transparent, transparent 40%, #ff0);
-    animation: animate 1s linear infinite;
-}
-
-@keyframes animate {
+    animation: spin 0.5s linear infinite;
+  }
+  
+  @keyframes spin {
     0% {
-        transform: rotate(0);
-        filter: hue-rotate(0);
+      transform: rotate(0deg);
     }
-
     100% {
-        transform: rotate(360deg);
-        filter: hue-rotate(90deg);
+      transform: rotate(360deg);
     }
-}
-
-.load:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    border-radius: 50%;
-    z-index: 1000;
-}
-
+  }
+  
 .load:after {
     content: '';
     position: absolute;
